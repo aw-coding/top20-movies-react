@@ -1,7 +1,7 @@
 import React from 'react';
 import ChartItem from './ChartItem';
 
-const ChartList = ({chart}) => {
+const ChartList = ({chart, loaded}) => {
 
     // const chartNodes = chart.map(topMovie => {
     //     return (
@@ -9,10 +9,18 @@ const ChartList = ({chart}) => {
     //     );
     // })
 
+    if (!loaded){
+        return <p>Loading...</p>
+    }
+
+
     return(
         <>
         <h1>I am a chartlist</h1>
-        <ChartItem></ChartItem>
+        <h2>This should read 'Itunes store': {chart.feed.author.name.label}</h2>
+        <h2> {chart.feed.entry[0].rights.label}</h2>
+        {/* <h2>{chart.feed.entry}</h2> */}
+        {/* <ChartItem  title={chart.feed.entry.name}></ChartItem> */}
         </>
     )
 
